@@ -1,6 +1,3 @@
 ﻿  Data.cpp
-C:\Users\adria\source\repos\Bakalárska práca\Bakalárska práca\Data.cpp(28,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  main.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\variant(12): warning STL4038: The contents of <variant> are available only with C++17 or later.
-  Generating Code...
-  Bakalárska práca.vcxproj -> C:\Users\adria\source\repos\Bakalárska práca\x64\Debug\Bakalárska práca.exe
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(49,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Bakalárska práca.vcxproj -> C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\x64\Debug\Bakalárska práca.exe

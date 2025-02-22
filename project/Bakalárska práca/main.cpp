@@ -7,9 +7,9 @@
 #include "Data.h"
 
 int main() {
-	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\data.csv";
+	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\heart_failure_clinical_records_dataset.csv";
 	Data data;
+	data.setTargetClass(12);
 	data.LoadData(fileName);
-	int number = data.numberOfLaabels(1);
 	return 0;
 }

@@ -1,5 +1,6 @@
 #include "Data.h"
 #include <unordered_set>
+#include <cmath>
 
 void Data::LoadData(std::string name)
 {
@@ -10,6 +11,10 @@ void Data::LoadData(std::string name)
 	std::string line;
 	std::getline(file, line);
 	std::stringstream ss(line);
+	std::string value; 
+	while (std::getline(ss, value, ',')) {
+		this->atributesName.push_back(value);
+	}
 
 	while (std::getline(file, line)) {
 		std::stringstream ss(line);
@@ -20,13 +25,101 @@ void Data::LoadData(std::string name)
 		}
 		this->data.push_back(rowData);
 	}
+
+	this->calculateEntropy();
 }
 
-int Data::numberOfLaabels(int index)
+int Data::numberOfPresence(int index, std::string value, std::vector<int>& indexs)
+{
+	int number = 0;
+	for (int i = 0; i < indexs.size(); i++) {
+		if (value == this->data[indexs[i]][index]) {
+			number++;
+		}
+	}
+	return number;
+}
+
+int Data::numberOfLaabels(int index, std::vector<int>& indexs)
 {
 	std::unordered_set<std::string> unique;
-	for (int i = 1; i < this->data[index].size(); i++) {
-		unique.insert(this->data[index][i]);
+	for (int i = 1; i < indexs.size(); i++) {
+		unique.insert(this->data[index][indexs[i]]);
 	}
 	return unique.size();
+}
+
+std::vector<std::string> Data::getDiferentLabels(int index, std::vector<int>& indexs)
+{
+	std::unordered_set<std::string> unique;
+	for (int i = 0; i < indexs.size(); i++) {
+		unique.insert(this->data[indexs[i]][index]);
+	}
+
+	std::vector<std::string> labels(unique.begin(), unique.end());
+	return labels;
+}
+
+Data::~Data()
+{
+
+}
+
+bool Data::isLeaf(std::vector<int>& indexs)
+{
+	std::string value = this->data[this->targetClass][indexs[0]];
+	for (int i = 1; i < indexs.size(); i++) {
+		if (this->data[this->targetClass][indexs[i]] != value) {
+			return false;
+		}
+	}
+	return true;
+}
+
+double Data::calculateEntropyInfo(int index, std::vector<int>& indexs)
+{
+	std::unordered_map<std::string, std::vector<int>> hashMap = this->getLabels(index, indexs);
+	double entropy = 0.0;
+	for (auto& partHast : hashMap) {
+		std::vector<std::string> labels = this->getDiferentLabels(this->targetClass, indexs);
+		std::vector<int> numberOfPresence;
+		double partialEntropy = 0.0;
+		for (int i = 0; i < labels.size(); i++) {
+			numberOfPresence.push_back(this->numberOfPresence(this->targetClass, labels[i], indexs));
+		}
+		for (int i = 0; i < numberOfPresence.size(); i++) {
+			double p = (double)numberOfPresence[i] / (this->data.size() + 1);
+			partialEntropy += -p * log2(p);
+		}
+		entropy += partHast.second.size() / indexs.size();
+	}
+	return entropy;
+}
+
+std::unordered_map<std::string, std::vector<int>> Data::getLabels(int index, std::vector<int>& indexs)
+{
+	std::unordered_map<std::string, std::vector<int>> hashMap;
+	for (int i = 0; i < indexs.size(); i++) {
+		hashMap[this->data[indexs[i]][index]].push_back(indexs[i]);
+	}
+	return hashMap;
+}
+
+double Data::calculateEntropy()
+{
+	double entropy = 0; 
+	std::vector<int> numbers;
+	for (int i = 0; i < this->data.size(); i++) {
+		numbers.push_back(i);
+	}
+	std::vector<std::string> labels = this->getDiferentLabels(this->targetClass, numbers);
+	std::vector<int> numberOfPresence; 
+	for (int i = 0; i < labels.size(); i++) {
+		numberOfPresence.push_back(this->numberOfPresence(this->targetClass, labels[i], numbers));
+	}
+	for (int i = 0; i < numberOfPresence.size(); i++) {
+		double p = (double)numberOfPresence[i] / (this->data.size() +1);
+		entropy += -p * log2(p);
+	}
+	return entropy;
 }
