@@ -11,9 +11,9 @@ private:
 public:
 	Node* getRoot() { return this->root; };
 	Tree(Data* inputData);
-	Node* buildTree(Node* node, std::vector<int> indexs);
+	Node* buildTree(Node* node, std::vector<int> indexs, std::vector<bool> avalaibleAttributes);
 	void printTree();
 private:
-	int findMax(std::vector<double>& vec, Node* node);
+	int findMax(std::vector<double>& vec, std::vector<bool> avalaibleAttributes, std::vector<int> indexs);
 };
 

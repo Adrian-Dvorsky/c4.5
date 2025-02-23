@@ -38,6 +38,7 @@ public:
 	std::unordered_map<std::string, std::vector<int>> getLabels(int index, std::vector<int>& indexs);
 	double calculateSplitInfo(int index, std::vector<int>& indexs);
 	double getEntropyInfoTargetClass(std::vector<int> indexs);
+	bool isHomogene(int index, std::vector<int>& indexs);
 
 private:
 	void setBoolInfo();

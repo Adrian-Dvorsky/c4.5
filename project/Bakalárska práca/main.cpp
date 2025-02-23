@@ -17,6 +17,11 @@ int main() {
 	for (int i = 0; i < data.getSize(); i++) {
 		numbers.push_back(i);
 	}
- 	tree->buildTree(tree->getRoot(), numbers);
+	std::vector<bool> availableAttributes;
+	for (int i = 0; i < data.getNumberOfAttributes() - 1; i++)
+	{
+		availableAttributes.push_back(true);
+	}
+ 	tree->buildTree(tree->getRoot(), numbers, availableAttributes);
 	return 0;
 }

@@ -67,6 +67,7 @@ std::vector<int> Data::createSubset(std::vector<int>& indexs, int atttributeInde
 {
 	std::vector<int> newIndexs;
 	for (int i = 0; i < indexs.size(); i++) {
+		std::string test = this->data[indexs[i]][atttributeIndex];
 		if (this->data[indexs[i]][atttributeIndex] == value) {
 			newIndexs.push_back(indexs[i]);
 		}
@@ -134,6 +135,17 @@ double Data::getEntropyInfoTargetClass(std::vector<int> indexs)
 		entropy += -p * log2(p);
 	}
 	return entropy;
+}
+
+bool Data::isHomogene(int index, std::vector<int>& indexs)
+{
+	std::string value = this->data[indexs[0]][index];
+	for (int i = 0; i < indexs.size(); i++) {
+		if (value != this->data[indexs[i]][index]) {
+			return false;
+		}
+	}
+	return true;
 }
 
 void Data::setBoolInfo()
