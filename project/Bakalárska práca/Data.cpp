@@ -25,8 +25,6 @@ void Data::LoadData(std::string name)
 		}
 		this->data.push_back(rowData);
 	}
-
-	this->calculateEntropy();
 }
 
 int Data::numberOfPresence(int index, std::string value, std::vector<int>& indexs)
@@ -65,6 +63,17 @@ Data::~Data()
 
 }
 
+std::vector<int> Data::createSubset(std::vector<int>& indexs, int atttributeIndex, std::string value)
+{
+	std::vector<int> newIndexs;
+	for (int i = 0; i < indexs.size(); i++) {
+		if (this->data[indexs[i]][atttributeIndex] == value) {
+			newIndexs.push_back(indexs[i]);
+		}
+	}
+	return newIndexs;
+}
+
 bool Data::isLeaf(std::vector<int>& indexs)
 {
 	std::string value = this->data[this->targetClass][indexs[0]];
@@ -88,10 +97,10 @@ double Data::calculateEntropyInfo(int index, std::vector<int>& indexs)
 			numberOfPresence.push_back(this->numberOfPresence(this->targetClass, labels[i], indexs));
 		}
 		for (int i = 0; i < numberOfPresence.size(); i++) {
-			double p = (double)numberOfPresence[i] / (this->data.size() + 1);
+			double p = (double)numberOfPresence[i] / (this->data.size());
 			partialEntropy += -p * log2(p);
 		}
-		entropy += partHast.second.size() / indexs.size();
+		entropy += ((double) partHast.second.size() / indexs.size()) * partialEntropy;
 	}
 	return entropy;
 }
@@ -105,21 +114,29 @@ std::unordered_map<std::string, std::vector<int>> Data::getLabels(int index, std
 	return hashMap;
 }
 
-double Data::calculateEntropy()
+double Data::calculateSplitInfo(int index, std::vector<int>& indexs)
 {
-	double entropy = 0; 
-	std::vector<int> numbers;
-	for (int i = 0; i < this->data.size(); i++) {
-		numbers.push_back(i);
+	std::unordered_map<std::string, std::vector<int>> hashMap = this->getLabels(index, indexs);
+	double splitInfo = 0.0;
+	for (auto& value : hashMap) {
+		double p = (double) value.second.size()/ (this->data.size());
+		splitInfo += -p * log2(p);
 	}
-	std::vector<std::string> labels = this->getDiferentLabels(this->targetClass, numbers);
-	std::vector<int> numberOfPresence; 
-	for (int i = 0; i < labels.size(); i++) {
-		numberOfPresence.push_back(this->numberOfPresence(this->targetClass, labels[i], numbers));
-	}
-	for (int i = 0; i < numberOfPresence.size(); i++) {
-		double p = (double)numberOfPresence[i] / (this->data.size() +1);
+	return splitInfo;
+}
+
+double Data::getEntropyInfoTargetClass(std::vector<int> indexs)
+{
+	double entropy = 0.0;
+	std::unordered_map<std::string, std::vector<int>> hashMap = this->getLabels(this->targetClass, indexs);
+	for (auto& value : hashMap) {
+		double p = (double)value.second.size() / (this->data.size());
 		entropy += -p * log2(p);
 	}
 	return entropy;
 }
+
+void Data::setBoolInfo()
+{
+}
+

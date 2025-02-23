@@ -1,3 +1,8 @@
-﻿  Data.cpp
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(49,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+﻿  Tree.cpp
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(21,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Tree.cpp')
+  
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(22,57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Tree.cpp')
+  
   Bakalárska práca.vcxproj -> C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\x64\Debug\Bakalárska práca.exe

@@ -15,6 +15,14 @@ public:
 	~Node();
 	bool getLeaf() { return this->isLeaf;};
 	void setLeaf(bool state) { this->isLeaf = state;};
+	std::string getLabel() { return this->label; };
+	void setLabel(std::string name) { this->label = name; };
+	double getTreshold() { return this->splitThreshold; };
+	void setTreshold(double splitThreshold) { this->splitThreshold = splitThreshold; };
+	int getSplitAttribute() { return this->splitAttribute; };
+	void setSplitAttribute(int value) { this->splitAttribute = value; };
+
+	void addChild(Node* node);
 
 };
 
