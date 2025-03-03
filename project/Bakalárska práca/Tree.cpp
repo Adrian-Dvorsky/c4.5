@@ -36,18 +36,20 @@ Node* Tree::buildTree(Node* node, std::vector<int> indexs, std::vector<bool> ava
 		std::vector<std::string> labels = this->data->getDiferentLabels(this->data->getNumberOfAttributes() - 1, indexs);
 		for (int i = 0; i < labels.size(); i++) {
 			Node* node = new Node();
-			node->setLabel(this->data->getAttributeName(maxGain));
-			node->setSplitAttribute(maxGain);
+			node->setLabel(this->data->getAttributeName(this->data->getNumberOfAttributes() - 1));
+			node->setSplitAttribute(this->data->getNumberOfAttributes() - 1);
 			node->addChild(this->buildTree(node, this->data->createSubset(indexs, i, labels[i]), avalaibleAttributes));
 		}
 	}
-	std::vector<std::string> labels = this->data->getDiferentLabels(maxGain, indexs);
-	avalaibleAttributes[maxGain] = false;
-	for (int i = 0; i < labels.size(); i++) {
-		Node* node = new Node();
-		node->setLabel(this->data->getAttributeName(maxGain));
-		node->setSplitAttribute(maxGain);
-		node->addChild(this->buildTree(node, this->data->createSubset(indexs, maxGain, labels[i]), avalaibleAttributes));
+	else {
+		std::vector<std::string> labels = this->data->getDiferentLabels(maxGain, indexs);
+		avalaibleAttributes[maxGain] = false;
+		for (int i = 0; i < labels.size(); i++) {
+			Node* node = new Node();
+			node->setLabel(this->data->getAttributeName(maxGain));
+			node->setSplitAttribute(maxGain);
+			node->addChild(this->buildTree(node, this->data->createSubset(indexs, maxGain, labels[i]), avalaibleAttributes));
+		}
 	}
 	return node;
 }

@@ -5,5 +5,7 @@ C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(22,57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'Data.cpp')
   
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(47,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(55,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(186,9): warning C4101: 'bestGainRatio': unreferenced local variable
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(185,6): warning C4101: 'bestTreshold': unreferenced local variable
   Bakalárska práca.vcxproj -> C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\x64\Debug\Bakalárska práca.exe

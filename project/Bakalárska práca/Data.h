@@ -11,7 +11,7 @@ class Data
 private:
 	std::vector<std::vector<std::string>> data;
 	std::vector<std::string> atributesName;
-	std::vector<bool> isContinues;
+	std::vector<std::string> atributeType;
 	int targetClass;
 	double targetClassEtropyInfo;
 public:
@@ -40,7 +40,11 @@ public:
 	double getEntropyInfoTargetClass(std::vector<int> indexs);
 	bool isHomogene(int index, std::vector<int>& indexs);
 
+
+	double getGainTest(int index, std::vector<int>& indexs);
+	double findTreshold(int index, std::vector<int>& indexs);
+	std::vector<int> createIndexsForTreshold(int index, std::vector<int>& indexs, bool isHigh, double treshold);
 private:
-	void setBoolInfo();
+
 };
 
