@@ -10,11 +10,11 @@
 int main() {
 	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\test.csv";
 	Data data;
-	data.setTargetClass(3);
+	data.setTargetClass(4);
 	data.LoadData(fileName);
 	Tree * tree = new Tree(&data);
 	std::vector<int> numbers;
-	for (int i = 0; i < data.getSize(); i++) {
+	for (int i = 0; i < 20; i++) {
 		numbers.push_back(i);
 	}
 	std::vector<bool> availableAttributes;
@@ -22,6 +22,6 @@ int main() {
 	{
 		availableAttributes.push_back(true);
 	}
- 	tree->buildTree(tree->getRoot(), numbers, availableAttributes);
+	tree->buildTree(tree->getRoot(), numbers, availableAttributes);
 	return 0;
 }

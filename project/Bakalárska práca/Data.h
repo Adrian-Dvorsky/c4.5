@@ -33,6 +33,8 @@ public:
 	};
 
 	std::vector<int> createSubset(std::vector<int>& indexs, int atttributeIndex, std::string value);
+	std::vector<int> createSubsetForNumbers(std::vector<int>& indexs, int atttributeIndex, double treshold, bool isHigher);
+
 	bool isLeaf(std::vector<int>& indexs);
 	double calculateEntropyInfo(int index, std::vector<int>& indexs);
 	std::unordered_map<std::string, std::vector<int>> getLabels(int index, std::vector<int>& indexs);
@@ -41,10 +43,10 @@ public:
 	bool isHomogene(int index, std::vector<int>& indexs);
 
 
-	double getGainTest(int index, std::vector<int>& indexs);
-	double findTreshold(int index, std::vector<int>& indexs);
+	std::vector<double> getGainTest(int index, std::vector<int>& indexs);
+	std::vector<double> findTreshold(int index, std::vector<int>& indexs, bool isIntiger);
 	std::vector<int> createIndexsForTreshold(int index, std::vector<int>& indexs, bool isHigh, double treshold);
+	std::string findMajorityClass(std::vector<int>& indexs);
 private:
-
 };
 

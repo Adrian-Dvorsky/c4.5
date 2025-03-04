@@ -83,11 +83,33 @@ std::vector<int> Data::createSubset(std::vector<int>& indexs, int atttributeInde
 	return newIndexs;
 }
 
+std::vector<int> Data::createSubsetForNumbers(std::vector<int>& indexs, int atttributeIndex, double treshold, bool isHigher)
+{
+		std::vector<int> newIndexs;
+	for (int i = 0; i < indexs.size(); i++) {
+		double value = std::stod(this->data[indexs[i]][atttributeIndex]);
+		if (isHigher) {
+			if (value > treshold) {
+				newIndexs.push_back(indexs[i]);
+			}
+		}
+		else {
+			if (value <= treshold) {
+				newIndexs.push_back(indexs[i]);
+			}
+		}
+	}
+	return newIndexs;
+}
+
 bool Data::isLeaf(std::vector<int>& indexs)
 {
-	std::string value = this->data[this->targetClass][indexs[0]];
+	if (indexs.size() == 1) {
+		return true;
+	}
+	std::string value = this->data[indexs[0]][this->targetClass];
 	for (int i = 1; i < indexs.size(); i++) {
-		if (this->data[this->targetClass][indexs[i]] != value) {
+		if (this->data[indexs[i]][this->targetClass] != value) {
 			return false;
 		}
 	}
@@ -107,7 +129,7 @@ double Data::calculateEntropyInfo(int index, std::vector<int>& indexs)
 		}
 		for (int i = 0; i < numberOfPresence.size(); i++) {
 			if (numberOfPresence[i] != 0) {
-				double p = (double)numberOfPresence[i] / (this->data.size());
+				double p = (double)numberOfPresence[i] / (partHast.second.size());
 				partialEntropy += -p * log2(p);
 			}
 		}
@@ -130,7 +152,7 @@ double Data::calculateSplitInfo(int index, std::vector<int>& indexs)
 	std::unordered_map<std::string, std::vector<int>> hashMap = this->getLabels(index, indexs);
 	double splitInfo = 0.0;
 	for (auto& value : hashMap) {
-		double p = (double) value.second.size()/ (this->data.size());
+		double p = (double) value.second.size()/ (indexs.size());
 		splitInfo += -p * log2(p);
 	}
 	return splitInfo;
@@ -158,76 +180,100 @@ bool Data::isHomogene(int index, std::vector<int>& indexs)
 	return true;
 }
 
-double Data::getGainTest(int index, std::vector<int>& indexs)
+std::vector<double> Data::getGainTest(int index, std::vector<int>& indexs)
 {
 	double targetClassEntropy = this->getEntropyInfoTargetClass(indexs);
-	std::vector<double> entropyInfo;
-	for (int i = 0; i < this->getNumberOfAttributes(); i++) {
-		if (this->atributeType[index] == "i") {
-			this->findTreshold(index, indexs);
-		}
+	std::vector<double> gainRatio;
+	if (this->atributeType[index] == "i") {
+		return this->findTreshold(index, indexs, true);
 	}
-	return 0;
+	else if (this->atributeType[index] == "d") {
+		return this->findTreshold(index, indexs, false);
+	}
+	else {
+		double informationGain = targetClassEntropy - this->calculateEntropyInfo(index, indexs);
+		double splitInfo = this->calculateSplitInfo(index, indexs);
+		double gainRatio = 0.0;
+		if (splitInfo == 0) {
+			gainRatio = 0;
+		}
+		else {
+			gainRatio = informationGain / splitInfo;
+		}
+		std::vector<double> retVector;
+		retVector.push_back(gainRatio);
+		retVector.push_back(std::numeric_limits<double>::quiet_NaN());
+		return retVector;
+	}
 }
 
 
-double Data::findTreshold(int index, std::vector<int>& indexs)
+std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool isIntiger)
 {
 	double targetClassEntropy = this->getEntropyInfoTargetClass(indexs);
-	std::vector<int> newData;
+	std::vector<double> newData;
 	for (int i = 0; i < indexs.size(); i++) {
-		newData.push_back(std::stoi(this->data[indexs[i]][index]));
+		newData.push_back(std::stod(this->data[indexs[i]][index]));
 	}
 	std::sort(newData.begin(), newData.end());
-	std::vector<int> tresholds;
+	std::vector<double> tresholds;
 	for (int i = 0; i < indexs.size() -1; i++) {
 		if (newData[i] != newData[i + 1]) {
-			tresholds.push_back((newData[i] + newData[i + 1]) / 2);
+			if (isIntiger) {
+				tresholds.push_back(std::round((newData[i] + newData[i + 1]) / 2));
+			}
+			else {
+				tresholds.push_back((newData[i] + newData[i + 1]) / 2);
+			}
 		}
 	}
-	int bestTreshold;
-	double bestGainRatio;
+	int bestTreshold = -1;
+	double bestGainRatio = -1;
 	for (int i = 0; i < tresholds.size(); i++) {
 		std::vector<std::string> labels = this->getDiferentLabels(this->targetClass, indexs);
 		std::vector<int> leftInterval = this->createIndexsForTreshold(index, indexs, false, tresholds[i]);
 		std::vector<int> rightInterval = this->createIndexsForTreshold(index, indexs, true, tresholds[i]);
-		double entropy = -1.0;
-		double partialEntropy = -1.0;
+		double entropy = 0.0;
+		double partialEntropy = 0.0;
 		std::vector<int> numberOfPresenceLeft;
 		std::vector<int> numberOfPresenceRight;
 		for (int j = 0; j < labels.size(); j++) {
-			numberOfPresenceLeft.push_back(this->numberOfPresence(this->targetClass, labels[i], leftInterval));
+			numberOfPresenceLeft.push_back(this->numberOfPresence(this->targetClass, labels[j], leftInterval));
 		}
 		for (int j = 0; j < labels.size(); j++) {
-			numberOfPresenceRight.push_back(this->numberOfPresence(this->targetClass, labels[i], rightInterval));
+			numberOfPresenceRight.push_back(this->numberOfPresence(this->targetClass, labels[j], rightInterval));
 		}
-		for (int i = 0; i < numberOfPresenceLeft.size(); i++) {
-			if (numberOfPresenceLeft[i] != 0) {
-				double p = (double)numberOfPresenceLeft[i] / (numberOfPresenceLeft.size());
+		for (int j = 0; j < numberOfPresenceLeft.size(); j++) {
+			if (numberOfPresenceLeft[j] != 0) {
+				double p = (double)numberOfPresenceLeft[j] / (std::accumulate(numberOfPresenceLeft.begin(), numberOfPresenceLeft.end(), 0));
 				partialEntropy += -p * log2(p);
 			}
 		}
-		entropy += ((double)numberOfPresenceLeft.size() / indexs.size()) * partialEntropy;
-		for (int i = 0; i < numberOfPresenceRight.size(); i++) {
-			if (numberOfPresenceRight[i] != 0) {
-				double p = (double)numberOfPresenceRight[i] / (numberOfPresenceRight.size());
+		entropy += ((double)std::accumulate(numberOfPresenceLeft.begin(), numberOfPresenceLeft.end(), 0) / indexs.size()) * partialEntropy;
+		partialEntropy = 0;
+		for (int j = 0; j < numberOfPresenceRight.size(); j++) {
+			if (numberOfPresenceRight[j] != 0) {
+				double p = (double)numberOfPresenceRight[j] / (std::accumulate(numberOfPresenceRight.begin(), numberOfPresenceRight.end(), 0));
 				partialEntropy += -p * log2(p);
 			}
 		}
-		entropy += ((double)numberOfPresenceRight.size() / indexs.size()) * partialEntropy;
+		entropy += ((double)std::accumulate(numberOfPresenceRight.begin(), numberOfPresenceRight.end(), 0) / indexs.size()) * partialEntropy;
 		double gain = targetClassEntropy - entropy;
 		double splitInfo = 0.0;
 		double p = ((double)leftInterval.size() / indexs.size());
 		splitInfo += -p * log2(p);
-		double p = ((double)rightInterval.size() / indexs.size());
+		p = ((double)rightInterval.size() / indexs.size());
 		splitInfo += -p * log2(p);
-		double gainRatio = gain / splitInfo;
-		if (bestGainRatio > gainRatio) {
+		double gainRatio = gain / splitInfo;	
+		if (gainRatio > bestGainRatio) {
 			bestGainRatio = gainRatio;
 			bestTreshold = tresholds[i];
 		}
 	}
-	return bestTreshold;
+	std::vector<double> returnVector;
+	returnVector.push_back(bestGainRatio);
+	returnVector.push_back(bestTreshold);
+	return returnVector;
 
 }
 
@@ -249,6 +295,22 @@ std::vector<int> Data::createIndexsForTreshold(int index, std::vector<int>& inde
 	}
 	return newIndexs;
 }
+
+std::string Data::findMajorityClass(std::vector<int>& indexs)
+{
+
+	std::unordered_map<std::string, std::vector<int>> hashMap = this->getLabels(this->targetClass, indexs);
+	std::string value;
+	int max = -1;
+	for (auto& partHash : hashMap) {
+		if (partHash.second.size() > max) {
+			max = partHash.second.size();
+			value = partHash.first;
+		}
+	}
+	return value;
+}
+
 
 
 
