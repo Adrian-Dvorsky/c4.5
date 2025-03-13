@@ -3,11 +3,15 @@
 #include "Data.h"
 #include <vector>
 #include <string>
+#include "ConfusionMatrix.h"
+#include "Statistics.h"
 class Tree
 {
 private:
-	Node* root;
+	Node* root = nullptr;
 	Data* data = nullptr;
+	ConfusionMatrix* confusionMatrix = nullptr;
+	Statistics* stats;
 public:
 	Node* getRoot() { return this->root; };
 	Tree(Data* inputData);
@@ -16,12 +20,17 @@ public:
 
 	~Tree();
 	void printTree();
+	void printSubTree(Node* node, int depth);
+	void testModel(std::vector<int>& indexs);
 private:
 	int findMax(std::vector<std::vector<double>> vec, std::vector<bool> avalaibleAttributes);
 	void crossValidation(std::vector<int>& indexs, std::vector<bool> avalaibleAttributes);
-	void testModel(std::vector<int>& indexs);
 	bool isHomogene(std::vector<int>& indexs);
 	bool useAllAtributes(std::vector<std::vector<double>> gainRatio);
 	void cleanTree(Node * node);
+	std::string predict(std::vector<std::string> sample);
+	void calculateStatistics();
+	void prunning(Node* node, std::vector<int> indexs);
+	std::string predictFromNode(Node* node, std::vector<std::string> sample);
 };
 

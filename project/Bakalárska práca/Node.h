@@ -7,6 +7,7 @@ class Node
 private:
 	bool isLeaf;
 	std::string label;
+	std::string nodeValue;
 	int splitAttribute;
 	double splitThreshold;
 	std::vector<Node*> children;
@@ -27,11 +28,17 @@ public:
 	void setTargetClassValue(std::string value) { this->targetClassValue = value; };
 	std::string getMajorityClass() { return this->majorityClass; };
 	void setMajorityClass(std::string value) { this->majorityClass = value; };
-
+	std::string getNodeValue() { return this->nodeValue; };
+	void setNodeValue(std::string value) { this->nodeValue = value; };
 
 	void addChild(Node* node);
 	Node* getChild(int index) { return children[index]; };
 	int getNumberOfChildren() { return children.size(); };
-	void clearChildren() { this->children.clear(); };
+	void removeChild(int index) {
+		if (index < 0 || index >= children.size()) {
+			return;
+		}
+		children.erase(children.begin() + index);
+	}
 };
 

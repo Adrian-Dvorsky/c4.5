@@ -6,7 +6,7 @@
 #include <cctype>
 #include <regex>
 
-void Data::LoadData(std::string name)
+void Data::LoadData(std::string& name)
 {
 	std::ifstream file(name);
 	if (!file.is_open()) {
@@ -33,6 +33,7 @@ void Data::LoadData(std::string name)
 		}
 		this->data.push_back(rowData);
 	}
+	file.close();
 }
 
 int Data::numberOfPresence(int index, std::string value, std::vector<int>& indexs)
@@ -85,7 +86,7 @@ std::vector<int> Data::createSubset(std::vector<int>& indexs, int atttributeInde
 
 std::vector<int> Data::createSubsetForNumbers(std::vector<int>& indexs, int atttributeIndex, double treshold, bool isHigher)
 {
-		std::vector<int> newIndexs;
+	std::vector<int> newIndexs;
 	for (int i = 0; i < indexs.size(); i++) {
 		double value = std::stod(this->data[indexs[i]][atttributeIndex]);
 		if (isHigher) {
@@ -163,7 +164,7 @@ double Data::getEntropyInfoTargetClass(std::vector<int> indexs)
 	double entropy = 0.0;
 	std::unordered_map<std::string, std::vector<int>> hashMap = this->getLabels(this->targetClass, indexs);
 	for (auto& value : hashMap) {
-		double p = (double)value.second.size() / (this->data.size());
+		double p = (double)value.second.size() / (indexs.size());
 		entropy += -p * log2(p);
 	}
 	return entropy;
@@ -227,7 +228,7 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 			}
 		}
 	}
-	int bestTreshold = -1;
+	double bestTreshold = -1;
 	double bestGainRatio = -1;
 	for (int i = 0; i < tresholds.size(); i++) {
 		std::vector<std::string> labels = this->getDiferentLabels(this->targetClass, indexs);
@@ -246,7 +247,9 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 		for (int j = 0; j < numberOfPresenceLeft.size(); j++) {
 			if (numberOfPresenceLeft[j] != 0) {
 				double p = (double)numberOfPresenceLeft[j] / (std::accumulate(numberOfPresenceLeft.begin(), numberOfPresenceLeft.end(), 0));
-				partialEntropy += -p * log2(p);
+				if (p > 0) {
+					partialEntropy += -p * log2(p);
+				}
 			}
 		}
 		entropy += ((double)std::accumulate(numberOfPresenceLeft.begin(), numberOfPresenceLeft.end(), 0) / indexs.size()) * partialEntropy;
@@ -254,24 +257,46 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 		for (int j = 0; j < numberOfPresenceRight.size(); j++) {
 			if (numberOfPresenceRight[j] != 0) {
 				double p = (double)numberOfPresenceRight[j] / (std::accumulate(numberOfPresenceRight.begin(), numberOfPresenceRight.end(), 0));
-				partialEntropy += -p * log2(p);
+				if (p > 0) {
+					partialEntropy += -p * log2(p);
+				}
 			}
 		}
 		entropy += ((double)std::accumulate(numberOfPresenceRight.begin(), numberOfPresenceRight.end(), 0) / indexs.size()) * partialEntropy;
 		double gain = targetClassEntropy - entropy;
 		double splitInfo = 0.0;
 		double p = ((double)leftInterval.size() / indexs.size());
+		if (p > 0) {
+			splitInfo += -p * log2(p);
+		}
+		if (p > 0) {
+			p = ((double)rightInterval.size() / indexs.size());
+		}
 		splitInfo += -p * log2(p);
-		p = ((double)rightInterval.size() / indexs.size());
-		splitInfo += -p * log2(p);
-		double gainRatio = gain / splitInfo;	
+		double gainRatio = 0.0;
+		if (splitInfo != 0) {
+			gainRatio = gain / splitInfo;
+		}
 		if (gainRatio > bestGainRatio) {
 			bestGainRatio = gainRatio;
 			bestTreshold = tresholds[i];
 		}
+		/*
+		std::cout<< i<< std::endl;
+		std::cout<< tresholds[i] <<std::endl;
+		std::cout<< entropy <<std::endl;
+		std::cout<< gain <<std::endl;
+		std::cout<< splitInfo<<std::endl;
+		std::cout<< gainRatio <<std::endl;
+		*/
 	}
 	std::vector<double> returnVector;
-	returnVector.push_back(bestGainRatio);
+	if (bestGainRatio == -1) {
+		returnVector.push_back(0);
+	}
+	else {
+		returnVector.push_back(bestGainRatio);
+	}
 	returnVector.push_back(bestTreshold);
 	return returnVector;
 
@@ -303,7 +328,8 @@ std::string Data::findMajorityClass(std::vector<int>& indexs)
 	std::string value;
 	int max = -1;
 	for (auto& partHash : hashMap) {
-		if (partHash.second.size() > max) {
+		int test = partHash.second.size();
+		if (test > max) {
 			max = partHash.second.size();
 			value = partHash.first;
 		}

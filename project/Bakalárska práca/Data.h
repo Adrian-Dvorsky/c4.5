@@ -15,16 +15,17 @@ private:
 	int targetClass;
 	double targetClassEtropyInfo;
 public:
-	Data() : targetClass(-1) {};
+	Data() : targetClass(-1), targetClassEtropyInfo(0) {};
 	~Data();
 
 	int getSize() { return this->data.size(); };
 	int getNumberOfAttributes() { return this->data[0].size(); };
 	double getTargetClassEtropyInfo() { return this->targetClassEtropyInfo; };
+	std::vector<std::string> getSample(int index) { return this->data[index]; };
 	std::string getAttributeName(int index) { return this->atributesName[index]; };
+	std::string getTargetClassValue(int index) { return this->data[index][this->targetClass]; };
 
-	
-	void LoadData(std::string name);
+	void LoadData(std::string& name);
 	int numberOfLaabels(int index, std::vector<int>& indexs);
 	std::vector<std::string> getDiferentLabels(int index, std::vector<int>& indexs);
 	int numberOfPresence(int index, std::string value, std::vector<int>& indexs);

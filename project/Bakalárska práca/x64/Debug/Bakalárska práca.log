@@ -1,17 +1,14 @@
-﻿  Data.cpp
+﻿  Tree.cpp
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Node.h(36,50): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Tree.cpp')
+  
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(21,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Data.cpp')
+  (compiling source file 'Tree.cpp')
   
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(22,57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Data.cpp')
+  (compiling source file 'Tree.cpp')
   
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(55,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(270,30): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(270,30): warning C4244:         with
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(270,30): warning C4244:         [
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(270,30): warning C4244:             _Ty=double
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(270,30): warning C4244:         ]
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.cpp(307,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Tree.cpp(151,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   main.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\variant(12): warning STL4038: The contents of <variant> are available only with C++17 or later.
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(21,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
@@ -20,7 +17,7 @@ C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(22,57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Node.h(34,50): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Node.h(36,50): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
   Generating Code...

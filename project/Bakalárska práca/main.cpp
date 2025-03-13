@@ -6,22 +6,22 @@
 #include <cctype>
 #include "Data.h"
 #include "Tree.h"
+#define _CRTDBG_MAP_ALLOC
+#include <cstdlib>
+#include <crtdbg.h>
+
 
 int main() {
-	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\test.csv";
-	Data data;
-	data.setTargetClass(4);
-	data.LoadData(fileName);
-	Tree * tree = new Tree(&data);
-	std::vector<int> numbers;
-	for (int i = 0; i < 20; i++) {
-		numbers.push_back(i);
+	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\heart_failure_clinical_records_dataset.csv";
+	Data* data = new Data();
+	data->LoadData(fileName);
+	data->setTargetClass(data->getNumberOfAttributes() - 1);
+	Tree * tree = new Tree(data);
+	tree->startBuilding();
+	delete tree;
+	if (data != nullptr) {
+		delete data;
 	}
-	std::vector<bool> availableAttributes;
-	for (int i = 0; i < data.getNumberOfAttributes() - 1; i++)
-	{
-		availableAttributes.push_back(true);
-	}
-	tree->buildTree(tree->getRoot(), numbers, availableAttributes);
+	_CrtDumpMemoryLeaks();
 	return 0;
 }
