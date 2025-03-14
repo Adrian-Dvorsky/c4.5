@@ -150,13 +150,11 @@ int Tree::findMax(std::vector<std::vector<double>> vec, std::vector<bool> avalai
 	double max = -1.0;
 	int index = -1.0; 
 	for (int i = 0; i < vec.size(); i++) {
-		std::cout << i << " " << vec[i][0] << std::endl;
 		if (vec[i][0] > max && avalaibleAttributes[i]) {
 			max = vec[i][0];
 			index = i;
 		}
 	}
-	std::cout << "" << std::endl;
 	return index;
 }
 
@@ -303,7 +301,7 @@ void Tree::prunning(Node* node, std::vector<int> indexs)
 		}
 	}
 
-	if (leafErrors <= subtreeErrors -1) {
+	if (leafErrors <= subtreeErrors - 1) {
 		node->setLeaf(true);
 		node->setMajorityClass(majority);
 		while (node->getNumberOfChildren() > 0) {
@@ -332,7 +330,7 @@ std::string Tree::predictFromNode(Node* node, std::vector<std::string> sample)
 		}
 		else {
 			double val = std::stod(value);
-			if (val > current->getChild(0)->getTreshold()) {
+			if (val <= current->getChild(0)->getTreshold()) {
 				current = current->getChild(0);
 			}
 			else {
@@ -346,44 +344,101 @@ std::string Tree::predictFromNode(Node* node, std::vector<std::string> sample)
 	return current->getMajorityClass();
 }
 
+void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
+{
+	if (node->getLeaf()) return;
+
+	int attrIndex = node->getSplitAttribute();
+
+	std::vector<std::vector<int>> childrenIndexs;
+	if (node->getTreshold() == -1) {
+		for (int i = 0; i < node->getNumberOfChildren(); i++) {
+			std::string value = node->getChild(i)->getNodeValue();
+			std::vector<int> subset = this->data->createSubset(indexs, attrIndex, value);
+			pesimisticPruning(node->getChild(i), subset);
+			childrenIndexs.push_back(subset);
+		}
+	}
+	else {
+		double threshold = node->getTreshold();
+		std::vector<int> leftSubset = this->data->createSubsetForNumbers(indexs, attrIndex, threshold, false);
+		std::vector<int> rightSubset = this->data->createSubsetForNumbers(indexs, attrIndex, threshold, true);
+		pesimisticPruning(node->getChild(0), leftSubset);
+		pesimisticPruning(node->getChild(1), rightSubset);
+		childrenIndexs.push_back(leftSubset);
+		childrenIndexs.push_back(rightSubset);
+	}
+
+	std::string majority = this->data->findMajorityClass(indexs);
+
+	int leafErrors = 0;
+	for (int i : indexs) {
+		if (this->data->getTargetClassValue(i) != majority) {
+			leafErrors++;
+		}
+	}
+	double leafErrorEstimate = (leafErrors + 0.5) / (double)indexs.size();
+
+	int subtreeErrors = 0;
+	int subtreeSize = 0;
+	for (int i = 0; i < node->getNumberOfChildren(); i++) {
+		Node* child = node->getChild(i);
+		std::vector<int>& childIndexs = childrenIndexs[i];
+		for (int j : childIndexs) {
+			std::string predicted = predictFromNode(child, this->data->getSample(j));
+			if (predicted != this->data->getTargetClassValue(j)) {
+				subtreeErrors++;
+			}
+		}
+		subtreeSize += childIndexs.size();
+	}
+	double subtreeErrorEstimate = (subtreeErrors + 0.5 * node->getNumberOfChildren()) / (double)indexs.size();
+
+	if (leafErrorEstimate <= subtreeErrorEstimate) {
+		node->setLeaf(true);
+		node->setMajorityClass(majority);
+		while (node->getNumberOfChildren() > 0) {
+			cleanTree(node->getChild(0));
+			node->removeChild(0);
+		}
+	}
+}
+
 
 void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> availableAttributes)
 {
-	int numberOfInterval = 4;
+	int numberOfInterval = 2;
 	int foldSize = this->data->getSize() / numberOfInterval;
-	const double validationRatio = 0.3;
+
 	for (int i = 0; i < numberOfInterval; i++) {
-		std::vector<int> trainIndexs, validationIndexs, testIndexs;
+		std::vector<int> trainIndexs, testIndexs;
 
 		for (int j = 0; j < this->data->getSize(); j++) {
 			if (j >= i * foldSize && j < (i + 1) * foldSize) {
-				// tieto budú rozdelené medzi validačné a testovacie
-				if ((j - i * foldSize) < foldSize / 2) {
-					validationIndexs.push_back(indexs[j]);
-				}
-				else {
-					testIndexs.push_back(indexs[j]);
-				}
+				testIndexs.push_back(indexs[j]); // testovacie dáta
 			}
 			else {
-				trainIndexs.push_back(indexs[j]);
+				trainIndexs.push_back(indexs[j]); // tréningové dáta
 			}
 		}
 
 		// 1. Vybuduj strom na tréningových dátach
 		this->buildTree(this->root, trainIndexs, availableAttributes);
-		//this->printTree();
 
-		// 2. Pruning na validačných dátach
-		this->prunning(this->root, validationIndexs);
-		//this->printTree();
-		// 3. Testuj na testovacích dátach
+		// 2. Pruning na tréningových dátach (alebo bez pruning, ak chceš raw strom)
+		this->pesimisticPruning(this->root, trainIndexs);
+		// this->prunning(this->root, trainIndexs); // ak chceš REP
+
+		// 3. Výpis stromu (voliteľné)
+		this->printTree();
+
+		// 4. Testuj na testovacích dátach
 		this->testModel(testIndexs);
 
-		// 4. Vyhodnoť metriky
+		// 5. Vyhodnoť metriky
 		this->calculateStatistics();
 
-		// 5. Vyčisti strom pre ďalší fold
+		// 6. Vyčisti strom pre ďalší fold
 		this->cleanTree(this->root);
 		this->root = nullptr;
 	}

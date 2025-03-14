@@ -12,7 +12,7 @@
 
 
 int main() {
-	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\heart_failure_clinical_records_dataset.csv";
+	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\testWheather.csv";
 	Data* data = new Data();
 	data->LoadData(fileName);
 	data->setTargetClass(data->getNumberOfAttributes() - 1);

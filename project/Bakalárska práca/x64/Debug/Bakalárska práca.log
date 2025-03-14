@@ -9,16 +9,5 @@ C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h
   (compiling source file 'Tree.cpp')
   
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Tree.cpp(151,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  main.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\variant(12): warning STL4038: The contents of <variant> are available only with C++17 or later.
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(21,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'main.cpp')
-  
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(22,57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'main.cpp')
-  
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Node.h(36,50): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'main.cpp')
-  
-  Generating Code...
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Tree.cpp(393,34): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   Bakalárska práca.vcxproj -> C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\x64\Debug\Bakalárska práca.exe
