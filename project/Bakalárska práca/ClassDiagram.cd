@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="Data">
+    <Position X="0.5" Y="0.5" Width="7" />
+    <TypeIdentifier>
+      <HashCode>QAAAAQCCAawUIAgAgAAAAEACANAAEFAQAAgSAAAAAAE=</HashCode>
+      <FileName>Data.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu">
+    <Position X="8.25" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAkAAAAAAAAAAIAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Node">
+    <Position X="1.5" Y="8.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAEQABRAABAAICICIBACFAAIFQAAAAMAAxE=</HashCode>
+      <FileName>Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Statistics">
+    <Position X="9.5" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAABQAABQAgAACAAAAAAAgAAAAiAAAAQAgAAAAA=</HashCode>
+      <FileName>Statistics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tree">
+    <Position X="12.75" Y="1.25" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAECQAACAAIECAAAkgAACIAAICAQAEACQSAAAAAA=</HashCode>
+      <FileName>Tree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConfusionMatrix">
+    <Position X="13.25" Y="7.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAQgAAAAAAAIAAAAACAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>ConfusionMatrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

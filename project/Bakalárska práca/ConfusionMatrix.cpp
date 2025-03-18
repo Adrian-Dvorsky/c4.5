@@ -2,8 +2,8 @@
 
 void ConfusionMatrix::addPrediction(std::string actual, std::string predict)
 {
-	if (actual == "1" || actual == "TRUE" || actual == "true") {
-		if (predict == "1" || predict == "TRUE" || predict == "true") {
+	if (actual == "1" || actual == "TRUE" || actual == "true" || actual == "Yes") {
+		if (predict == "1" || predict == "TRUE" || predict == "true" || predict == "Yes") {
 			this->matrix[0][0]++;
 		}
 		else {
@@ -11,7 +11,7 @@ void ConfusionMatrix::addPrediction(std::string actual, std::string predict)
 		}
 	}
 	else {
-		if (predict == "0" || predict == "FALSE" || predict == "false") {
+		if (predict == "0" || predict == "FALSE" || predict == "false" || predict == "No") {
 			this->matrix[1][1]++;
 		}
 		else {

@@ -33,5 +33,6 @@ private:
 	void prunning(Node* node, std::vector<int> indexs);
 	std::string predictFromNode(Node* node, std::vector<std::string> sample);
 	void pesimisticPruning(Node* node, std::vector<int> indexs);
+	void saveResult();
 };
 

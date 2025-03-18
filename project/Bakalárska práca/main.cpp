@@ -4,24 +4,10 @@
 #include <vector>
 #include <variant>
 #include <cctype>
-#include "Data.h"
-#include "Tree.h"
-#define _CRTDBG_MAP_ALLOC
-#include <cstdlib>
-#include <crtdbg.h>
-
+#include "Menu.h"
 
 int main() {
-	std::string fileName = "C:\\Users\\adria\\Downloads\\heart+failure+clinical+records\\testWheather.csv";
-	Data* data = new Data();
-	data->LoadData(fileName);
-	data->setTargetClass(data->getNumberOfAttributes() - 1);
-	Tree * tree = new Tree(data);
-	tree->startBuilding();
-	delete tree;
-	if (data != nullptr) {
-		delete data;
-	}
-	_CrtDumpMemoryLeaks();
+	Menu* menu = new Menu();
+	delete menu;
 	return 0;
 }

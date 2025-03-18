@@ -6,11 +6,11 @@
 #include <cctype>
 #include <regex>
 
-void Data::LoadData(std::string& name)
+bool Data::LoadData(std::string& name)
 {
 	std::ifstream file(name);
 	if (!file.is_open()) {
-		std::cout << "Chyba\n" << std::endl;
+		return false;
 	}
 	std::string line;
 	std::getline(file, line);
@@ -34,6 +34,7 @@ void Data::LoadData(std::string& name)
 		this->data.push_back(rowData);
 	}
 	file.close();
+	return true;
 }
 
 int Data::numberOfPresence(int index, std::string value, std::vector<int>& indexs)
@@ -134,7 +135,7 @@ double Data::calculateEntropyInfo(int index, std::vector<int>& indexs)
 				partialEntropy += -p * log2(p);
 			}
 		}
-		entropy += ((double) partHast.second.size() / indexs.size()) * partialEntropy;
+		entropy += ((double)partHast.second.size() / indexs.size()) * partialEntropy;
 	}
 	return entropy;
 }
@@ -193,6 +194,9 @@ std::vector<double> Data::getGainTest(int index, std::vector<int>& indexs)
 	}
 	else {
 		double informationGain = targetClassEntropy - this->calculateEntropyInfo(index, indexs);
+		if (informationGain < 0.0000001) {
+			informationGain = 0;
+		}
 		double splitInfo = this->calculateSplitInfo(index, indexs);
 		double gainRatio = 0.0;
 		if (splitInfo == 0) {
@@ -264,6 +268,9 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 		}
 		entropy += ((double)std::accumulate(numberOfPresenceRight.begin(), numberOfPresenceRight.end(), 0) / indexs.size()) * partialEntropy;
 		double gain = targetClassEntropy - entropy;
+		if (gain < 0.0000001) {
+			gain = 0;
+		}
 		double splitInfo = 0.0;
 		double p = ((double)leftInterval.size() / indexs.size());
 		if (p > 0) {

@@ -17,7 +17,7 @@ void Tree::startBuilding()
 	for (int i = 0; i < this->data->getNumberOfAttributes() - 1; i++)
 	{
 		availableAttributes.push_back(true);
-	}	
+	}
 	this->crossValidation(numbers, availableAttributes);
 }
 
@@ -209,16 +209,21 @@ std::string Tree::predict(std::vector<std::string> sample)
 		std::string value = sample[attrIndex];
 		int size = current->getNumberOfChildren();
 		if (current->getTreshold() == -1) {
+			bool matched = false;
 			for (int i = 0; i < size; i++) {
 				if (value == current->getChild(i)->getNodeValue()) {
 					current = current->getChild(i);
+					matched = true;
 					break;
 				}
+			}
+			if (!matched) {
+				return current->getMajorityClass();
 			}
 		}
 		else {
 			double newValue = std::stod(value);
-			if (newValue <= current->getChild(0)->getTreshold()) {
+			if (newValue <= current->getTreshold()) {
 				current = current->getChild(0);
 			}
 			else {
@@ -330,7 +335,7 @@ std::string Tree::predictFromNode(Node* node, std::vector<std::string> sample)
 		}
 		else {
 			double val = std::stod(value);
-			if (val <= current->getChild(0)->getTreshold()) {
+			if (val <= current->getTreshold()) {
 				current = current->getChild(0);
 			}
 			else {
@@ -347,6 +352,9 @@ std::string Tree::predictFromNode(Node* node, std::vector<std::string> sample)
 void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 {
 	if (node->getLeaf()) return;
+
+	const double pruningOffset = 0.5 / sqrt(indexs.size());  // čím vyššie, tým viac sa prerezáva
+	const double penaltyPerChild = 0.5 / sqrt(indexs.size());  // dodatočná penalizácia za každý child
 
 	int attrIndex = node->getSplitAttribute();
 
@@ -392,9 +400,11 @@ void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 		}
 		subtreeSize += childIndexs.size();
 	}
-	double subtreeErrorEstimate = (subtreeErrors + 0.5 * node->getNumberOfChildren()) / (double)indexs.size();
 
-	if (leafErrorEstimate <= subtreeErrorEstimate) {
+	double subtreeErrorEstimate =
+		(subtreeErrors + 0.5 * node->getNumberOfChildren() + penaltyPerChild * node->getNumberOfChildren()) / (double)indexs.size();
+
+	if (leafErrorEstimate <= subtreeErrorEstimate + pruningOffset) {
 		node->setLeaf(true);
 		node->setMajorityClass(majority);
 		while (node->getNumberOfChildren() > 0) {
@@ -404,10 +414,30 @@ void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 	}
 }
 
+void Tree::saveResult()
+{
+	std::ofstream file("result.csv");
+	if (!file.is_open()) {
+		std::cerr << "Nepodarilo sa otvoriť súbor!" << std::endl;
+		return;
+	}
+	file << "Presnosť (Accuranc),Chybovosť (Error Rate),Presnoť (Precision),Citlivosť (Recall),F-skóre (F-score)" << std::endl;
+	file << this->stats->getAverageAccuracy();
+	file << ",";
+	file << 1 - this->stats->getAverageAccuracy();
+	file << ",";
+	file << this->stats->getAveragePrecision();
+	file << ",";
+	file << this->stats->getAverageRecall();
+	file << ",";
+	file << this->stats->getAverageFscore() << std::endl;
+	file.close();
+}
+
 
 void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> availableAttributes)
 {
-	int numberOfInterval = 2;
+	int numberOfInterval = 4;
 	int foldSize = this->data->getSize() / numberOfInterval;
 
 	for (int i = 0; i < numberOfInterval; i++) {
@@ -422,31 +452,24 @@ void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> available
 			}
 		}
 
-		// 1. Vybuduj strom na tréningových dátach
 		this->buildTree(this->root, trainIndexs, availableAttributes);
-
-		// 2. Pruning na tréningových dátach (alebo bez pruning, ak chceš raw strom)
 		this->pesimisticPruning(this->root, trainIndexs);
-		// this->prunning(this->root, trainIndexs); // ak chceš REP
 
-		// 3. Výpis stromu (voliteľné)
 		this->printTree();
 
-		// 4. Testuj na testovacích dátach
 		this->testModel(testIndexs);
-
-		// 5. Vyhodnoť metriky
+		
 		this->calculateStatistics();
 
-		// 6. Vyčisti strom pre ďalší fold
 		this->cleanTree(this->root);
 		this->root = nullptr;
 	}
 
-	// Výpis priemerných metrík
 	std::cout << "Accurancy : " << this->stats->getAverageAccuracy() << std::endl;
+	std::cout << "Error Rate : " << 1 - this->stats->getAverageAccuracy() << std::endl;
 	std::cout << "Precision :" << this->stats->getAveragePrecision() << std::endl;
 	std::cout << "Recall :" << this->stats->getAverageRecall() << std::endl;
 	std::cout << "F-score :" << this->stats->getAverageFscore() << std::endl;
+	this->saveResult();
 }
 
