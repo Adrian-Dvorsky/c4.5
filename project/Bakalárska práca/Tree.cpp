@@ -437,7 +437,7 @@ void Tree::saveResult()
 
 void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> availableAttributes)
 {
-	int numberOfInterval = 4;
+	int numberOfInterval = 2;
 	int foldSize = this->data->getSize() / numberOfInterval;
 
 	for (int i = 0; i < numberOfInterval; i++) {
@@ -453,7 +453,7 @@ void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> available
 		}
 
 		this->buildTree(this->root, trainIndexs, availableAttributes);
-		this->pesimisticPruning(this->root, trainIndexs);
+		//this->pesimisticPruning(this->root, trainIndexs);
 
 		this->printTree();
 
