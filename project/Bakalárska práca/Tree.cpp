@@ -421,15 +421,15 @@ void Tree::saveResult()
 		std::cerr << "Nepodarilo sa otvoriť súbor!" << std::endl;
 		return;
 	}
-	file << "Presnosť (Accuranc),Chybovosť (Error Rate),Presnoť (Precision),Citlivosť (Recall),F-skóre (F-score)" << std::endl;
+	file << "Presnosť (Accuranc);Chybovosť (Error Rate);Presnoť (Precision);Citlivosť (Recall);F-skóre (F-score)" << std::endl;
 	file << this->stats->getAverageAccuracy();
-	file << ",";
+	file << ";";
 	file << 1 - this->stats->getAverageAccuracy();
-	file << ",";
+	file << ";";
 	file << this->stats->getAveragePrecision();
-	file << ",";
+	file << ";";
 	file << this->stats->getAverageRecall();
-	file << ",";
+	file << ";";
 	file << this->stats->getAverageFscore() << std::endl;
 	file.close();
 }

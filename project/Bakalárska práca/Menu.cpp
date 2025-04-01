@@ -25,7 +25,7 @@ void Menu::spustiProgram()
 		return;
 	}
 	std::cout << "--------------     Zadaj vstupny subor" << std::endl;
-	std::string vstupnySubor = "C:\\Users\\adria\\Downloads\\machine_failure\\data.csv";
+	std::string vstupnySubor = "C:\\Users\\adria\\Downloads\\Vzorov__dataset_-_Rozhodovanie_o__kolen_.csv";
 	//std::cin >> vstupnySubor;
 	if (this->data == nullptr) {
 		this->data = new Data();

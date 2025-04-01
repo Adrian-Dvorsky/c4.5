@@ -3,84 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Node.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Node.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Tree.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ClassDiagram.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
       "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\ClassDiagram.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Node.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Node.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\variant||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Statistics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Statistics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Statistics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C111689B-AF18-451F-AEB5-0975E0E03B1B}|Bakal\u00E1rska pr\u00E1ca\\Bakal\u00E1rska pr\u00E1ca.vcxproj|solutionrelative:Bakal\u00E1rska pr\u00E1ca\\Statistics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\string||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\delete_scalar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xmemory||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,18 +30,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "Data.cpp",
+              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
+              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
+              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
+              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
+              "ViewState": "AQIAAC4AAAAAAAAAAAApwFUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-27T21:36:55.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ClassDiagram.cd",
               "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ClassDiagram.cd",
               "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\ClassDiagram.cd",
               "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ClassDiagram.cd",
               "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\ClassDiagram.cd",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000463|",
-              "WhenOpened": "2025-03-18T19:55:45.73Z"
+              "WhenOpened": "2025-03-27T21:36:48.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tree.cpp",
+              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
+              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
+              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
+              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
+              "ViewState": "AQIAACQAAAAAAAAAAAAgwEcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-27T21:30:58.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\main.cpp",
+              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\main.cpp",
+              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\main.cpp",
+              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-27T21:30:49.08Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -111,246 +90,9 @@
               "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Menu.cpp",
               "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Menu.cpp",
               "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Menu.cpp",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABsAAABPAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAABwAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-18T18:25:23.601Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Menu.h",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Menu.h",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Menu.h",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Menu.h",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Menu.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-18T18:24:28.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Statistics.cpp",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Statistics.cpp",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Statistics.cpp",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Statistics.cpp",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Statistics.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-13T17:49:57.687Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Statistics.h",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Statistics.h",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Statistics.h",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Statistics.h",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Statistics.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-13T10:39:51.627Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "xmemory",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xmemory",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xmemory",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xmemory",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xmemory",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-06T14:18:44.801Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "new_scalar.cpp",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-06T13:28:42.141Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "utility",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\utility",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-06T11:15:57.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "delete_scalar.cpp",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\delete_scalar.cpp",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\delete_scalar.cpp",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\delete_scalar.cpp",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\delete_scalar.cpp",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-06T11:05:36.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "xstring",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-06T10:55:55.01Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "string",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\string",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\string",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\string",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\string",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-06T10:31:37.672Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Tree.cpp",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Tree.cpp",
-              "ViewState": "AQIAAMsBAAAAAAAAAAAAAMsBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-19T17:26:21.385Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ConfusionMatrix.cpp",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.cpp",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.cpp",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.cpp",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABSAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T09:06:49.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "variant",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\variant",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\variant",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\variant",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\variant",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-05T09:39:02.165Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ConfusionMatrix.h",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.h",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.h",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.h",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\ConfusionMatrix.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T09:06:44.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\main.cpp",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\main.cpp",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\main.cpp",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-19T09:57:18.107Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Node.cpp",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Node.cpp",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Node.cpp",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Node.cpp",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Node.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-19T16:32:34.186Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Data.cpp",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Data.cpp",
-              "ViewState": "AQIAAC4BAAAAAAAAAAAAAAoAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-19T12:41:10.41Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "vector",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-20T20:19:44.846Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Node.h",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Node.h",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Node.h",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Node.h",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Node.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAYwCMAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-19T16:20:01.725Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Tree.h",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.h",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Tree.h",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Tree.h",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Tree.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-19T16:19:46.96Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Data.h",
-              "DocumentMoniker": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.h",
-              "RelativeDocumentMoniker": "Bakal\u00E1rska pr\u00E1ca\\Data.h",
-              "ToolTip": "C:\\Users\\adria\\Desktop\\Bakal\u00E1rska pr\u00E1ca\\c4.5\\project\\Bakal\u00E1rska pr\u00E1ca\\Data.h",
-              "RelativeToolTip": "Bakal\u00E1rska pr\u00E1ca\\Data.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-19T12:38:55.592Z"
+              "WhenOpened": "2025-03-27T21:29:59.958Z"
             }
           ]
         }
