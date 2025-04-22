@@ -1,6 +1,7 @@
 #pragma once
 #include "Data.h"
 #include "Tree.h"
+#include <vector>
 class Menu
 {
 private:
@@ -11,5 +12,6 @@ public:
 	Menu();
 	void spustiProgram();
 	~Menu();
+	std::vector<int> loadIndexs();
 };
 

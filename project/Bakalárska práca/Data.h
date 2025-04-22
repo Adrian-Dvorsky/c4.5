@@ -24,8 +24,10 @@ public:
 	std::vector<std::string> getSample(int index) { return this->data[index]; };
 	std::string getAttributeName(int index) { return this->atributesName[index]; };
 	std::string getTargetClassValue(int index) { return this->data[index][this->targetClass]; };
+	const std::vector<std::string> getAttributesNames() { return this->atributesName; };
+	bool LoadData(std::string& name, std::vector<int> indexs);
+	bool loadNames(std::string& name);
 
-	bool LoadData(std::string& name);
 	int numberOfLaabels(int index, std::vector<int>& indexs);
 	std::vector<std::string> getDiferentLabels(int index, std::vector<int>& indexs);
 	int numberOfPresence(int index, std::string value, std::vector<int>& indexs);

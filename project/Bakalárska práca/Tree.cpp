@@ -51,7 +51,7 @@ Node* Tree::buildTree(Node* node, std::vector<int> indexs, std::vector<bool> ava
 		return node;
 	}
 	int maxGain = this->findMax(gainRatio, avalaibleAttributes);
-	if (gainRatio[maxGain][0] < 0.01) {
+	if (gainRatio[maxGain][0] < 0.001) {
 		node->setLeaf(true);
 		node->setMajorityClass(this->data->findMajorityClass(indexs));
 		return node;
@@ -331,7 +331,7 @@ std::string Tree::predictFromNode(Node* node, std::vector<std::string> sample)
 					break;
 				}
 			}
-			if (!found) break; // fallback
+			if (!found) break; 
 		}
 		else {
 			double val = std::stod(value);
@@ -353,8 +353,8 @@ void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 {
 	if (node->getLeaf()) return;
 
-	const double pruningOffset = 0.5 / sqrt(indexs.size());  // čím vyššie, tým viac sa prerezáva
-	const double penaltyPerChild = 0.5 / sqrt(indexs.size());  // dodatočná penalizácia za každý child
+	const double pruningOffset = 0.4 / sqrt(indexs.size());
+	const double penaltyPerChild = 0.4 / sqrt(indexs.size());
 
 	int attrIndex = node->getSplitAttribute();
 
@@ -401,8 +401,7 @@ void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 		subtreeSize += childIndexs.size();
 	}
 
-	double subtreeErrorEstimate =
-		(subtreeErrors + 0.5 * node->getNumberOfChildren() + penaltyPerChild * node->getNumberOfChildren()) / (double)indexs.size();
+	double subtreeErrorEstimate = (subtreeErrors + 0.5 * node->getNumberOfChildren() + penaltyPerChild * node->getNumberOfChildren()) / (double)indexs.size();
 
 	if (leafErrorEstimate <= subtreeErrorEstimate + pruningOffset) {
 		node->setLeaf(true);
@@ -437,7 +436,7 @@ void Tree::saveResult()
 
 void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> availableAttributes)
 {
-	int numberOfInterval = 2;
+	int numberOfInterval = 4;
 	int foldSize = this->data->getSize() / numberOfInterval;
 
 	for (int i = 0; i < numberOfInterval; i++) {
@@ -453,7 +452,7 @@ void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> available
 		}
 
 		this->buildTree(this->root, trainIndexs, availableAttributes);
-		//this->pesimisticPruning(this->root, trainIndexs);
+		this->pesimisticPruning(this->root, trainIndexs);
 
 		this->printTree();
 

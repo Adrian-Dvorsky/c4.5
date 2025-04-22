@@ -6,7 +6,7 @@
 #include <cctype>
 #include <regex>
 
-bool Data::LoadData(std::string& name)
+bool Data::LoadData(std::string& name, std::vector<int> indexs)
 {
 	std::ifstream file(name);
 	if (!file.is_open()) {
@@ -16,22 +16,51 @@ bool Data::LoadData(std::string& name)
 	std::getline(file, line);
 	std::stringstream ss(line);
 	std::string value; 
+	int colIndex = 0;
 	while (std::getline(ss, value, ',')) {
-		this->atributesName.push_back(value);
+		if (std::find(indexs.begin(), indexs.end(), colIndex) != indexs.end()) {
+			this->atributesName.push_back(value);
+		}
+		++colIndex;
 	}
 	std::getline(file, line);
 	std::stringstream sss(line);
+	colIndex = 0;
 	while (std::getline(sss, value, ',')) {
-		this->atributeType.push_back(value);
+		if (std::find(indexs.begin(), indexs.end(), colIndex) != indexs.end()) {
+			this->atributeType.push_back(value);
+		}
+		++colIndex;
 	}
 	while (std::getline(file, line)) {
 		std::stringstream ss(line);
 		std::string value;
 		std::vector<std::string> rowData;
+		colIndex = 0;
 		while (std::getline(ss, value, ',')) {
-			rowData.push_back(value);
+			if (std::find(indexs.begin(), indexs.end(), colIndex) != indexs.end()) {
+				rowData.push_back(value);
+			}
+			++colIndex;
 		}
 		this->data.push_back(rowData);
+	}
+	file.close();
+	return true;
+}
+
+bool Data::loadNames(std::string& name)
+{
+	std::ifstream file(name);
+	if (!file.is_open()) {
+		return false;
+	}
+	std::string line;
+	std::getline(file, line);
+	std::stringstream ss(line);
+	std::string value;
+	while (std::getline(ss, value, ',')) {
+		this->atributesName.push_back(value);
 	}
 	file.close();
 	return true;
@@ -288,14 +317,6 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 			bestGainRatio = gainRatio;
 			bestTreshold = tresholds[i];
 		}
-		/*
-		std::cout<< i<< std::endl;
-		std::cout<< tresholds[i] <<std::endl;
-		std::cout<< entropy <<std::endl;
-		std::cout<< gain <<std::endl;
-		std::cout<< splitInfo<<std::endl;
-		std::cout<< gainRatio <<std::endl;
-		*/
 	}
 	std::vector<double> returnVector;
 	if (bestGainRatio == -1) {
