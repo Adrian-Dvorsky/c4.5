@@ -1,4 +1,5 @@
 ﻿#include "Tree.h"
+#include <numeric>
 
 Tree::Tree(Data* inputData)
 {
@@ -27,9 +28,11 @@ Node* Tree::buildTree(Node* node, std::vector<int> indexs, std::vector<bool> ava
 	if (this->root == nullptr) {
 		this->root = new Node();
 		node = this->root;
+		node->setNumSamples(indexs.size());
 	}
 	if (node == nullptr) {
 		node = new Node();
+		node->setNumSamples(indexs.size());
 	}
 	if (this->data->isLeaf(indexs)) {
 		node->setLeaf(true);
@@ -56,6 +59,7 @@ Node* Tree::buildTree(Node* node, std::vector<int> indexs, std::vector<bool> ava
 		node->setMajorityClass(this->data->findMajorityClass(indexs));
 		return node;
 	}
+	node->setInformationGain(gainRatio[maxGain][2]);
 	node->setLabel(this->data->getAttributeName(maxGain));
 	node->setSplitAttribute(maxGain);
 	if (std::isnan(gainRatio[maxGain][1])) {
@@ -353,8 +357,8 @@ void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 {
 	if (node->getLeaf()) return;
 
-	const double pruningOffset = 0.4 / sqrt(indexs.size());
-	const double penaltyPerChild = 0.4 / sqrt(indexs.size());
+	const double pruningOffset = 0.5 / sqrt(indexs.size());
+	const double penaltyPerChild = 0.5 / sqrt(indexs.size());
 
 	int attrIndex = node->getSplitAttribute();
 
@@ -433,6 +437,40 @@ void Tree::saveResult()
 	file.close();
 }
 
+void Tree::calculateImportance(Node* node, std::vector<double>& importance)
+{
+	if (node == nullptr || node->getLeaf()) {
+		return;
+	}
+	int splitAttribute = node->getSplitAttribute();
+	double infoGain = node->getInformationGain();
+	int samples = node->getNumSamples();
+	
+	importance[splitAttribute] = infoGain * ((double)samples / this->data->getSize());
+
+	for (Node* child : node->getChildren()) {
+		this->calculateImportance(child, importance);
+	}
+}
+
+void Tree::printImportance()
+{
+	std::vector<double> importance(this->data->getNumberOfAttributes(), 0.0);
+	this->calculateImportance(this->root, importance);
+
+	double sum = std::accumulate(importance.begin(), importance.end(), 0.0);
+	if (sum > 0) {
+		for (double& val : importance) {
+			val = val / sum;
+		}
+	}
+	std::cout << "" << std::endl;
+	for (int i = 0; i < this->data->getNumberOfAttributes() - 1; i++) {
+		std::cout << this->data->getAttributeName(i) << " : " << importance[i] << std::endl;
+	}
+	std::cout << "" << std::endl;
+}
+
 
 void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> availableAttributes)
 {
@@ -453,9 +491,8 @@ void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> available
 
 		this->buildTree(this->root, trainIndexs, availableAttributes);
 		this->pesimisticPruning(this->root, trainIndexs);
-
 		this->printTree();
-
+		this->printImportance();
 		this->testModel(testIndexs);
 		
 		this->calculateStatistics();

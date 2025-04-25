@@ -1,16 +1,15 @@
-﻿  Menu.cpp
+﻿  Tree.cpp
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Node.h(38,50): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Tree.cpp')
+  
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(21,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Menu.cpp')
+  (compiling source file 'Tree.cpp')
   
 C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Data.h(22,57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Menu.cpp')
+  (compiling source file 'Tree.cpp')
   
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Node.h(36,50): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'Menu.cpp')
-  
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Menu.cpp(120,34): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Menu.cpp(120,34): warning C4267:         with
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Menu.cpp(120,34): warning C4267:         [
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Menu.cpp(120,34): warning C4267:             _Ty=int
-C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Menu.cpp(120,34): warning C4267:         ]
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Tree.cpp(31,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Tree.cpp(35,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Tree.cpp(155,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\Bakalárska práca\Tree.cpp(405,34): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   Bakalárska práca.vcxproj -> C:\Users\adria\Desktop\Bakalárska práca\c4.5\project\x64\Debug\Bakalárska práca.exe

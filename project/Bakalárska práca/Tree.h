@@ -34,5 +34,7 @@ private:
 	std::string predictFromNode(Node* node, std::vector<std::string> sample);
 	void pesimisticPruning(Node* node, std::vector<int> indexs);
 	void saveResult();
+	void calculateImportance(Node * node, std::vector<double>& importance);
+	void printImportance();
 };
 

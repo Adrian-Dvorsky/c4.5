@@ -120,6 +120,7 @@ void Menu::spustiProgram()
 			indexs.push_back(names.size() - 1);
 		}
 		data->LoadData(filepath, indexs);
+		int size = data->getSize();
 		this->tree = new Tree(this->data);
 		this->data->setTargetClass(data->getNumberOfAttributes() - 1);
 		this->tree->startBuilding();

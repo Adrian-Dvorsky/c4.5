@@ -13,6 +13,8 @@ private:
 	std::vector<Node*> children;
 	std::string targetClassValue;
 	std::string majorityClass;
+	int numSamples;
+	double informationGain;
 public:
 	Node() : isLeaf(false), splitAttribute(-1), splitThreshold(-1), majorityClass("") {};
 	~Node();
@@ -40,5 +42,10 @@ public:
 		}
 		children.erase(children.begin() + index);
 	}
+	int getNumSamples() { return this->numSamples; };
+	void setNumSamples(int value) { this->numSamples = value; };
+	double getInformationGain() { return this->informationGain; };
+	void setInformationGain(double value) { this->informationGain = value; };
+	const std::vector<Node*> getChildren() { return this->children; };
 };
 

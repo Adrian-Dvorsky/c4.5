@@ -237,6 +237,7 @@ std::vector<double> Data::getGainTest(int index, std::vector<int>& indexs)
 		std::vector<double> retVector;
 		retVector.push_back(gainRatio);
 		retVector.push_back(std::numeric_limits<double>::quiet_NaN());
+		retVector.push_back(informationGain);
 		return retVector;
 	}
 }
@@ -263,6 +264,7 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 	}
 	double bestTreshold = -1;
 	double bestGainRatio = -1;
+	double informationGain = -1;
 	for (int i = 0; i < tresholds.size(); i++) {
 		std::vector<std::string> labels = this->getDiferentLabels(this->targetClass, indexs);
 		std::vector<int> leftInterval = this->createIndexsForTreshold(index, indexs, false, tresholds[i]);
@@ -316,6 +318,7 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 		if (gainRatio > bestGainRatio) {
 			bestGainRatio = gainRatio;
 			bestTreshold = tresholds[i];
+			informationGain = gain;
 		}
 	}
 	std::vector<double> returnVector;
@@ -326,6 +329,7 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 		returnVector.push_back(bestGainRatio);
 	}
 	returnVector.push_back(bestTreshold);
+	returnVector.push_back(informationGain);
 	return returnVector;
 
 }
