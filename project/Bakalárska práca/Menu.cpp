@@ -10,6 +10,9 @@
 #include <locale>
 #include <codecvt>
 
+/**
+ * @brief Konštruktor – Inicializuje objekt Data a spustí hlavné menu.
+ */
 Menu::Menu()
 {
 	if (this->data == nullptr) {
@@ -17,6 +20,10 @@ Menu::Menu()
 	}
 	this->spustiProgram();
 }
+
+/**
+ * @brief Destruktor – Uvo¾ní alokovanú pamä pre Data a Tree.
+ */
 
 Menu::~Menu()
 {
@@ -29,6 +36,11 @@ Menu::~Menu()
 		this->tree = nullptr;
 	}
 }
+
+/**
+ * @brief Naèíta od pouívate¾a indexy ståpcov, ktoré chce importova zo súboru.
+ * @return Vektor indexov (zmenšenı o -1 pre nulové indexovanie).
+ */
 
 std::vector<int> Menu::loadIndexs()
 {
@@ -48,11 +60,21 @@ std::vector<int> Menu::loadIndexs()
 	return columns_to_read;
 }
 
+/**
+ * @brief Pomocná funkcia – Konvertuje wstring na std::string.
+ * @param wstr Širokı reazec (wstring)
+ * @return Reazec v UTF-8 (std::string)
+ */
+
 std::string wstringToString(const std::wstring& wstr) {
 	std::wstring_convert<std::codecvt_utf8<wchar_t>> conv;
 	return conv.to_bytes(wstr);
 }
 
+/**
+ * @brief Zobrazí dialógové okno pre vıber CSV súboru.
+ * @return Cesta k vybranému súboru alebo prázdny reazec pri zrušení.
+ */
 std::string openFileDialog() {
 	wchar_t filename[MAX_PATH] = L"";
 
@@ -74,6 +96,13 @@ std::string openFileDialog() {
 		return "";
 	}
 }
+
+/**
+ * @brief Spustí hlavné menu aplikácie, naèíta súbor, atribúty a vytrénuje rozhodovací strom.
+ *
+ * Pouívate¾ si môe zvoli buï všetky atribúty, alebo vlastnı vıber,
+ * následne sa vykoná naèítanie dát a spustenie trénovania.
+ */
 
 void Menu::spustiProgram()
 {

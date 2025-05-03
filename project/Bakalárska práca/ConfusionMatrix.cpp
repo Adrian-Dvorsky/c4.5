@@ -1,5 +1,13 @@
 #include "ConfusionMatrix.h"
 
+/**
+ * @brief Pridá jednu predikciu do konfúznej matice.
+ *
+ * Funkcia porovná skutoènú hodnotu (actual) s predikovanou hodnotou (predict)
+ * a pod¾a toho inkrementuje príslušnú bunku v 2x2 konfúznej matici.
+ *  
+ */
+
 void ConfusionMatrix::addPrediction(std::string actual, std::string predict)
 {
 	if (actual == "1" || actual == "TRUE" || actual == "true" || actual == "Yes") {
@@ -19,6 +27,15 @@ void ConfusionMatrix::addPrediction(std::string actual, std::string predict)
 		}
 	}
 }
+
+/**
+ * @brief Spoèíta celkový poèet záznamov v konfúznej matici.
+ *
+ * Prechádza všetky štyri bunky matice a vracia súèet všetkých hodnôt,
+ * èo zodpovedá celkovému poètu klasifikovaných prípadov.
+ *
+ * @return Celkový poèet hodnotení zapísaných do konfúznej matice.
+ */
 
 int ConfusionMatrix::sumOfMatrix()
 {

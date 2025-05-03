@@ -1,12 +1,21 @@
 ﻿#include "Tree.h"
 #include <numeric>
 
+/**
+ * @brief Konštruktor triedy Tree. Inicializuje objekt Data a pomocné komponenty
+ * @param inputData Ukazovateľ na vstupný dataset (objekt typu Data)
+ */
+
 Tree::Tree(Data* inputData)
 {
 	this->data = inputData;
 	this->confusionMatrix = new ConfusionMatrix();
 	this->stats = new Statistics();
 }
+
+/**
+ * @brief Spustí budovanie rozhodovacieho stromu s celou množinou atribútov.
+ */
 
 void Tree::startBuilding()
 {
@@ -22,6 +31,13 @@ void Tree::startBuilding()
 	this->crossValidation(numbers, availableAttributes);
 }
 
+/**
+ * @brief Rekurzívne vytvára uzly rozhodovacieho stromu na základe hodnoty gain ratio.
+ * @param node Aktuálny uzol (môže byť nullptr pri koreni)
+ * @param indexs Indexy dátových vzoriek
+ * @param avalaibleAttributes Boolean vektor dostupných atribútov
+ * @return Ukazovateľ na vytvorený uzol
+ */
 
 Node* Tree::buildTree(Node* node, std::vector<int> indexs, std::vector<bool> avalaibleAttributes)
 {
@@ -84,6 +100,10 @@ Node* Tree::buildTree(Node* node, std::vector<int> indexs, std::vector<bool> ava
 	return node;
 }
 
+/**
+ * @brief Destruktor – uvoľňuje pamäť stromu a pomocných komponentov.
+ */
+
 Tree::~Tree()
 {
 	if (this->root != nullptr) {
@@ -102,11 +122,21 @@ Tree::~Tree()
 
 }
 
+/**
+ * @brief Vytlačí celý rozhodovací strom na výstup.
+ */
+
 void Tree::printTree()
 {
 	std::cout << "=== DECISION TREE ===" << std::endl;
 	this->printSubTree(this->root, 0);
 }
+
+/**
+ * @brief Rekurzívne tlačí podstrom so zarážkami podľa hĺbky.
+ * @param node Aktuálny uzol
+ * @param depth Hĺbka pre odsadenie pri tlači
+ */
 
 void Tree::printSubTree(Node* node, int depth)
 {
@@ -149,6 +179,13 @@ void Tree::printSubTree(Node* node, int depth)
 	}
 }
 
+/**
+ * @brief Nájde atribút s najvyšším gain ratio zo zoznamu dostupných.
+ * @param vec Matica gain ratio pre každý atribút
+ * @param avalaibleAttributes Boolean vektor dostupných atribútov
+ * @return Index atribútu s najvyššou hodnotou
+ */
+
 int Tree::findMax(std::vector<std::vector<double>> vec, std::vector<bool> avalaibleAttributes)
 {
 	double max = -1.0;
@@ -162,6 +199,11 @@ int Tree::findMax(std::vector<std::vector<double>> vec, std::vector<bool> avalai
 	return index;
 }
 
+/**
+ * @brief Otestuje model na testovacích dátach a aktualizuje chybovú maticu.
+ * @param indexs Indexy testovacích vzoriek
+ */
+
 void Tree::testModel(std::vector<int>& indexs)
 {
 	for (int i = 0; i < indexs.size(); i++) {
@@ -170,6 +212,12 @@ void Tree::testModel(std::vector<int>& indexs)
 		this->confusionMatrix->addPrediction(realValue, predictValue);
 	}
 }
+
+/**
+ * @brief Skontroluje, či sú všetky atribúty homogénne v rámci vstupného zoznamu indexov.
+ * @param indexs Indexy vstupných vzoriek
+ * @return True, ak sú všetky atribúty homogénne, inak false
+ */
 
 bool Tree::isHomogene(std::vector<int>& indexs)
 {
@@ -182,6 +230,13 @@ bool Tree::isHomogene(std::vector<int>& indexs)
 
 }
 
+
+/**
+ * @brief Overí, či všetky atribúty majú nulovú informačnú hodnotu.
+ * @param gainRatio Zoznam gain ratio hodnôt
+ * @return True, ak všetky hodnoty sú nulové, inak false
+ */
+
 bool Tree::useAllAtributes(std::vector<std::vector<double>> gainRatio)
 {
 	for (int i = 0; i < gainRatio.size(); i++) {
@@ -191,6 +246,11 @@ bool Tree::useAllAtributes(std::vector<std::vector<double>> gainRatio)
 	}
 	return true;
 }
+
+/**
+ * @brief Vyčistí celý strom (rekurzívne odstráni všetky uzly).
+ * @param node Koreňový alebo aktuálny uzol
+ */
 
 void Tree::cleanTree(Node* node)
 {
@@ -204,6 +264,12 @@ void Tree::cleanTree(Node* node)
 	}
 	delete node;
 }
+
+/**
+ * @brief Vykoná predikciu pre jeden vstupný vzor pomocou vybudovaného stromu.
+ * @param sample Jedna vzorka na klasifikáciu
+ * @return Názov predikovanej triedy
+ */
 
 std::string Tree::predict(std::vector<std::string> sample)
 {
@@ -241,6 +307,10 @@ std::string Tree::predict(std::vector<std::string> sample)
 	return current->getMajorityClass();
 }
 
+/**
+ * @brief Spočíta a uloží štatistiky výkonu na základe aktuálnej konfúznej matice.
+ */
+
 void Tree::calculateStatistics()
 {
 	const std::vector<std::vector<int>> matrix = this->confusionMatrix->getMatrix();
@@ -263,6 +333,12 @@ void Tree::calculateStatistics()
 		}
 	}
 }
+
+/**
+ * @brief Vykoná rekurzívne prerezávanie stromu na základe porovnania chýb podstromu a listu.
+ * @param node Aktuálny uzol
+ * @param indexs Indexy dát pre uzol
+ */
 
 void Tree::prunning(Node* node, std::vector<int> indexs)
 {
@@ -320,6 +396,13 @@ void Tree::prunning(Node* node, std::vector<int> indexs)
 	}
 }
 
+/**
+ * @brief Predikuje triedu z konkrétneho uzla stromu (napr. pri prerezávaní).
+ * @param node Aktuálny uzol stromu
+ * @param sample Vektor hodnôt atribútov vzorky
+ * @return Názov predikovanej triedy
+ */
+
 std::string Tree::predictFromNode(Node* node, std::vector<std::string> sample)
 {
 	Node* current = node;
@@ -352,6 +435,12 @@ std::string Tree::predictFromNode(Node* node, std::vector<std::string> sample)
 	}
 	return current->getMajorityClass();
 }
+
+/**
+ * @brief Vykoná pesimistické prerezávanie na základe odhadu chýb a penalizácie.
+ * @param node Aktuálny uzol stromu
+ * @param indexs Indexy trénovacích vzoriek
+ */
 
 void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 {
@@ -417,6 +506,10 @@ void Tree::pesimisticPruning(Node* node, std::vector<int> indexs)
 	}
 }
 
+/**
+ * @brief Uloží výsledné priemerné metriky klasifikátora do CSV súboru.
+ */
+
 void Tree::saveResult()
 {
 	std::ofstream file("result.csv");
@@ -437,6 +530,12 @@ void Tree::saveResult()
 	file.close();
 }
 
+/**
+ * @brief Vypočíta dôležitosť atribútov podľa ich informačného zisku a podielu vzoriek.
+ * @param node Aktuálny uzol stromu
+ * @param importance Vektor pre uloženie dôležitosti jednotlivých atribútov
+ */
+
 void Tree::calculateImportance(Node* node, std::vector<double>& importance)
 {
 	if (node == nullptr || node->getLeaf()) {
@@ -452,6 +551,10 @@ void Tree::calculateImportance(Node* node, std::vector<double>& importance)
 		this->calculateImportance(child, importance);
 	}
 }
+
+/**
+ * @brief Vytlačí normalizovanú dôležitosť všetkých atribútov.
+ */
 
 void Tree::printImportance()
 {
@@ -471,6 +574,11 @@ void Tree::printImportance()
 	std::cout << "" << std::endl;
 }
 
+/**
+ * @brief Vykoná krížovú validáciu (4-fold), trénovanie a prerezávanie stromu, výpočet metrík a uloženie výsledkov.
+ * @param indexs Indexy všetkých vzoriek
+ * @param availableAttributes Boolean vektor dostupných atribútov
+ */
 
 void Tree::crossValidation(std::vector<int>& indexs, std::vector<bool> availableAttributes)
 {

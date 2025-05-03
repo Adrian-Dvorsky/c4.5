@@ -5,7 +5,15 @@
 #include <iostream>
 #include <cctype>
 #include <regex>
-
+/**
+ * @brief Naèíta dáta zo súboru a uloí vybrané ståpce.
+ *
+ * Prvé dva riadky v súbore obsahujú názvy atribútov a typy atribútov.
+ * Funkcia naèíta len tie ståpce, ktorıch indexy sú uvedené v indexs.
+ * @param name Názov CSV súboru
+ * @param indexs Indexy ståpcov, ktoré sa majú naèíta
+ * @return true ak sa súbor podarilo naèíta, inak false
+ */
 bool Data::LoadData(std::string& name, std::vector<int> indexs)
 {
 	std::ifstream file(name);
@@ -49,6 +57,12 @@ bool Data::LoadData(std::string& name, std::vector<int> indexs)
 	return true;
 }
 
+/**
+ * @brief Naèíta len názvy atribútov z prvého riadku CSV súboru.
+ * @param name Názov CSV súboru
+ * @return true ak sa názvy naèítali úspešne, inak false
+ */
+
 bool Data::loadNames(std::string& name)
 {
 	std::ifstream file(name);
@@ -66,6 +80,14 @@ bool Data::loadNames(std::string& name)
 	return true;
 }
 
+/**
+ * @brief Spoèíta poèet vıskytov hodnoty v danom atribúte medzi zadanımi indexmi.
+ * @param index Index atribútu
+ * @param value Hodnota, ktorej vıskyt sa poèíta
+ * @param indexs Indexy vzoriek, ktoré sa majú poui
+ * @return Poèet vıskytov hodnoty
+ */
+
 int Data::numberOfPresence(int index, std::string value, std::vector<int>& indexs)
 {
 	int number = 0;
@@ -76,6 +98,12 @@ int Data::numberOfPresence(int index, std::string value, std::vector<int>& index
 	}
 	return number;
 }
+/**
+ * @brief Zistí poèet unikátnych hodnôt triedy na danom indexe.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @return Poèet unikátnych hodnôt triedy
+ */
 
 int Data::numberOfLaabels(int index, std::vector<int>& indexs)
 {
@@ -85,6 +113,13 @@ int Data::numberOfLaabels(int index, std::vector<int>& indexs)
 	}
 	return unique.size();
 }
+
+/**
+ * @brief Získa rôzne hodnoty triedy pre danı atribút a indexy.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @return Vektor unikátnych hodnôt triedy
+ */
 
 std::vector<std::string> Data::getDiferentLabels(int index, std::vector<int>& indexs)
 {
@@ -97,10 +132,21 @@ std::vector<std::string> Data::getDiferentLabels(int index, std::vector<int>& in
 	return labels;
 }
 
+/**
+ * @brief Destruktor triedy Data.
+ */
 Data::~Data()
 {
 
 }
+
+/**
+ * @brief Vytvorí podmnoinu indexov, ktoré majú konkrétnu hodnotu atribútu.
+ * @param indexs Indexy pôvodnıch vzoriek
+ * @param atttributeIndex Index atribútu
+ * @param value Hodnota, ktorú má atribút ma
+ * @return Vektor novıch indexov zodpovedajúcich podmienke
+ */
 
 std::vector<int> Data::createSubset(std::vector<int>& indexs, int atttributeIndex, std::string value)
 {
@@ -114,6 +160,14 @@ std::vector<int> Data::createSubset(std::vector<int>& indexs, int atttributeInde
 	return newIndexs;
 }
 
+/**
+ * @brief Vytvorí podmnoinu indexov na základe èíselného prahu atribútu.
+ * @param indexs Indexy vzoriek
+ * @param atttributeIndex Index atribútu
+ * @param treshold Prahová hodnota
+ * @param isHigher Ak true, vracia hodnoty väèšie ne prah, inak menšie alebo rovné
+ * @return Vektor indexov spåòajúcich podmienku
+ */
 std::vector<int> Data::createSubsetForNumbers(std::vector<int>& indexs, int atttributeIndex, double treshold, bool isHigher)
 {
 	std::vector<int> newIndexs;
@@ -133,6 +187,12 @@ std::vector<int> Data::createSubsetForNumbers(std::vector<int>& indexs, int attt
 	return newIndexs;
 }
 
+/**
+ * @brief Zistí, èi všetky vzorky patria do rovnakej triedy.
+ * @param indexs Indexy vzoriek
+ * @return true ak patria do rovnakej triedy, inak false
+ */
+
 bool Data::isLeaf(std::vector<int>& indexs)
 {
 	if (indexs.size() == 1) {
@@ -147,6 +207,12 @@ bool Data::isLeaf(std::vector<int>& indexs)
 	return true;
 }
 
+/**
+ * @brief Vypoèíta entropiu triedy po rozdelení pod¾a hodnoty atribútu.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @return Hodnota entropie
+ */
 double Data::calculateEntropyInfo(int index, std::vector<int>& indexs)
 {
 	std::unordered_map<std::string, std::vector<int>> hashMap = this->getLabels(index, indexs);
@@ -169,6 +235,13 @@ double Data::calculateEntropyInfo(int index, std::vector<int>& indexs)
 	return entropy;
 }
 
+/**
+ * @brief Zoskupí indexy pod¾a hodnôt atribútu.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @return Mapa hodnôt atribútu na indexy vzoriek
+ */
+
 std::unordered_map<std::string, std::vector<int>> Data::getLabels(int index, std::vector<int>& indexs)
 {
 	std::unordered_map<std::string, std::vector<int>> hashMap;
@@ -177,6 +250,13 @@ std::unordered_map<std::string, std::vector<int>> Data::getLabels(int index, std
 	}
 	return hashMap;
 }
+
+/**
+ * @brief Vypoèíta split info pre gain ratio.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @return Hodnota split info
+ */
 
 double Data::calculateSplitInfo(int index, std::vector<int>& indexs)
 {
@@ -189,6 +269,12 @@ double Data::calculateSplitInfo(int index, std::vector<int>& indexs)
 	return splitInfo;
 }
 
+/**
+ * @brief Vypoèíta entropiu cie¾ovej triedy pred rozdelením.
+ * @param indexs Indexy vzoriek
+ * @return Hodnota entropie cie¾ovej triedy
+ */
+
 double Data::getEntropyInfoTargetClass(std::vector<int> indexs)
 {
 	double entropy = 0.0;
@@ -200,6 +286,13 @@ double Data::getEntropyInfoTargetClass(std::vector<int> indexs)
 	return entropy;
 }
 
+/**
+ * @brief Zistí, èi všetky hodnoty atribútu sú rovnaké.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @return true ak sú všetky hodnoty rovnaké, inak false
+ */
+
 bool Data::isHomogene(int index, std::vector<int>& indexs)
 {
 	std::string value = this->data[indexs[0]][index];
@@ -210,6 +303,13 @@ bool Data::isHomogene(int index, std::vector<int>& indexs)
 	}
 	return true;
 }
+
+/**
+ * @brief Vypoèíta gain ratio pre danı atribút.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @return Vektor s hodnotami [gain ratio, prahová hodnota, information gain]
+ */
 
 std::vector<double> Data::getGainTest(int index, std::vector<int>& indexs)
 {
@@ -242,6 +342,13 @@ std::vector<double> Data::getGainTest(int index, std::vector<int>& indexs)
 	}
 }
 
+/**
+ * @brief H¾adá najlepší prah pre èíselnı atribút na základe gain ratio.
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @param isIntiger true ak je atribút celá hodnota, inak false
+ * @return Vektor s hodnotami [najlepší gain ratio, prah, information gain]
+ */
 
 std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool isIntiger)
 {
@@ -334,6 +441,15 @@ std::vector<double> Data::findTreshold(int index, std::vector<int>& indexs, bool
 
 }
 
+/**
+ * @brief Rozdelí indexy pod¾a prahovej hodnoty (<= alebo >).
+ * @param index Index atribútu
+ * @param indexs Indexy vzoriek
+ * @param isHigher Ak true, vyberie väèšie hodnoty, inak menšie alebo rovné
+ * @param treshold Prahová hodnota
+ * @return Vektor indexov vzoriek
+ */
+
 std::vector<int> Data::createIndexsForTreshold(int index, std::vector<int>& indexs, bool isHigher, double treshold)
 {
 	std::vector<int> newIndexs;
@@ -352,6 +468,12 @@ std::vector<int> Data::createIndexsForTreshold(int index, std::vector<int>& inde
 	}
 	return newIndexs;
 }
+
+/**
+ * @brief Nájde najèastejšie sa vyskytujúcu triedu medzi vzorkami.
+ * @param indexs Indexy vzoriek
+ * @return Názov najèastejšej triedy
+ */
 
 std::string Data::findMajorityClass(std::vector<int>& indexs)
 {
